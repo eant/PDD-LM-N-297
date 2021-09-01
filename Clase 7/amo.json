@@ -1,0 +1,29 @@
+{
+   "nombre": "Juan Carlos",
+   "tipo": "humano",
+   "le gusta": [
+      "Una buena conversación",
+      "Los fichines",
+      "Fútbol"
+   ],
+   "edad": 38,
+   "mascota": [
+      {
+         "nombre": "Rocco",
+         "tipo": "perro",
+         "raza": "labrador",
+         "edad": 5,
+         "le gusta": [
+            "Comer",
+            "Ladrar",
+            "Correr a las palomas"
+         ]
+      },
+      {
+         "nombre": "Felix",
+         "tipo": "gato",
+         "raza": "persa",
+         "edad": 6
+      }
+   ]
+}
