@@ -7,4 +7,4 @@ def home():
     return "Hola mundo desde la home de <b>Flask</b> :D"
 
 
-app.run( port = 3000 )
+app.run( port = 3000, host = "0.0.0.0" )
