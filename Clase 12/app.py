@@ -1,9 +1,18 @@
 from flask import Flask, json
 from pymongo import MongoClient
+from urllib.parse import urlencode
+
+
 app = Flask(__name__)
 
 ### MongoDB ###
-client = MongoClient("mongodb+srv://eant-python:eantpass2021@python-data-developers.osipp.mongodb.net/PDD-MJ-N-287?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE")
+config = {
+    'retryWrites' : "true",
+    'w' : "majority",
+    'ssl' : "true",
+    'ssl_cert_reqs' : "CERT_NONE"
+}
+client = MongoClient("mongodb+srv://eant-python:eantpass2021@python-data-developers.osipp.mongodb.net/PDD-MJ-N-287?" + urlencode(config))
 ###############
 
 ###############
