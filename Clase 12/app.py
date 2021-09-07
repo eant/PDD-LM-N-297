@@ -28,19 +28,22 @@ def usersTwitter():
 ###############
 
 ###############
-@app.route("/tweets")
-def getTweets():
+@app.route("/tweets/<path>")
+def getTweets(path):
     twitter = client['PDD-MJ-N-287']['twitter']
     
-    users = twitter.find().limit(4)
+    if path not in ['people', 'company']:
+        result = { 'error' : 'Categoria no disponible' }
+    else:
+        users = twitter.find({ 'type' : path }).limit(4)
     
-    result = []
+        result = []
     
-    for user in users:
-        item = {
-            'usuario' : user['name']
-        }
-        result.append(item)
+        for user in users:
+            item = {
+                'usuario' : user['name']
+            }
+            result.append(item)
     
     return app.response_class(response = json.dumps(result), status  = 200, mimetype = "application/json" )
 
