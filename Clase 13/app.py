@@ -1,7 +1,13 @@
 from flask import Flask, json
 from pymongo import MongoClient
 from urllib.parse import urlencode
+import settings
+from os import environ
 
+USER = environ["DB_USER"]
+PASS = environ["DB_PASS"]
+HOST = environ["DB_HOST"]
+BASE = environ["DB_NAME"]
 
 app = Flask(__name__)
 
@@ -12,7 +18,7 @@ config = {
     'ssl' : "true",
     'ssl_cert_reqs' : "CERT_NONE"
 }
-client = MongoClient("mongodb+srv://eant-python:eantpass2021@python-data-developers.osipp.mongodb.net/PDD-MJ-N-287?" + urlencode(config))
+client = MongoClient("mongodb+srv://" + USER + ":" + PASS + "@" + HOST + "/" + BASE + "?" + urlencode(config))
 ###############
 
 ###############
