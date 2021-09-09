@@ -1,4 +1,4 @@
-from flask import Flask, json
+from flask import Flask, json, request
 from pymongo import MongoClient
 from urllib.parse import urlencode
 import settings
@@ -62,13 +62,38 @@ def getTweets(path):
     
     return app.response_class(response = json.dumps(result), status  = 200, mimetype = "application/json" )
 
+###############
 
+###############
+@app.route("/tweets", methods = ["POST"])
+def newTweet():
+    twitter = client['PDD-MJ-N-287']['twitter']
+    
+    ## ACA DEBERIA VALIDAR EL INGRESO DE DATOS ##
+    
+    tweet = {
+        "id" : request.form["time"],
+        "in_reply_to_screen_name" : request.form["user"],
+        "full_text" : request.form["message"]
+    }
 
+    result = twitter.insert_one( tweet )
+    
+    if result.acknowledged == True:
+        
+        response = {
+            "ok" : True,
+            "msg" : "Tweet guardado correctamente :D"
+        }
 
-
-
-
-
+    else:
+        
+        response = {
+            "ok" : False,
+            "msg" : "Error al guardar el Tweet :("
+        }
+    
+    return app.response_class(response = json.dumps(response), status  = 200, mimetype = "application/json" )
 
 
 
