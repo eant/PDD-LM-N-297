@@ -7,5 +7,5 @@
     "routes" : [{
         "src" : "/(.*)",
         "use" : "Clase 14/app.py"
-    }],
+    }]
 }
