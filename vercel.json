@@ -6,6 +6,6 @@
     }],
     "routes" : [{
         "src" : "/(.*)",
-        "dest" : "/Clase_14/app.py"
+        "dest" : "app.py"
     }]
 }
