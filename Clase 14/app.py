@@ -11,8 +11,6 @@ BASE = environ["DB_NAME"]
 PORT = environ["PORT"]
 FLASK_ENV = environ["FLASK_ENV"]
 
-
-
 app = Flask(__name__)
 
 ### MongoDB ###
@@ -100,8 +98,6 @@ def newTweet():
     return app.response_class(response = json.dumps(response), status  = 200, mimetype = "application/json" )
 
 
-
-
 ###############
 if __name__ == "__main__":
 
@@ -111,11 +107,5 @@ if __name__ == "__main__":
         
     else:
         
-        app.run( port = PORT )
-    
-    
-    
-    
-    
-    
+        app.run( port = PORT )  
     
